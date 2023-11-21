@@ -3,7 +3,12 @@
 
 #define MINSPELERS 8
 #define MAXSPELERS 18
+
 #include "speler.h"
+#include "burger.h"
+#include "heks.h"
+#include "weerwolf.h"
+
 #include <vector>
 
 
@@ -11,7 +16,9 @@ class Spel
 {
 public:
     Spel(int aantalSpelers);
-    std::vector<Speler> VoegSpelersToe(int aantalSpelers);
+    void VoegSpelersToe(int aantalSpelers);
+
+    void nacht(int aantalSpelers);
 
 private:
     int aantalSpelers;

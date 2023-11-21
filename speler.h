@@ -8,7 +8,7 @@ class Speler
 public:
     Speler( std::string naam) : naam(naam) {}
     std::string getNaam(void);
-    virtual void actieNacht(void) =0;
+    virtual void actieNacht(void)  =0;
 
 private:
     void setNaam(std::string name);
