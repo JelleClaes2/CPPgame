@@ -4,8 +4,8 @@ int main(int argc, char *argv[])
 {
     int aantalSpelers = 8;
 
-    Spel* niewSpel = new Spel(aantalSpelers);
-    niewSpel->VoegSpelersToe(aantalSpelers);
-
+    Spel* nieuwSpel = new Spel(aantalSpelers);
+    nieuwSpel->VoegSpelersToe(aantalSpelers);
+    nieuwSpel->nacht();
     return 0;
 }

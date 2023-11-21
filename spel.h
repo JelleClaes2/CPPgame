@@ -18,11 +18,11 @@ public:
     Spel(int aantalSpelers);
     void VoegSpelersToe(int aantalSpelers);
 
-    void nacht(int aantalSpelers);
+    void nacht();
 
 private:
     int aantalSpelers;
-    std::vector<Speler> spelersVector;
+    std::vector<Speler*> spelersVector;
 
 
 };
