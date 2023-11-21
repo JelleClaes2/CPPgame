@@ -11,10 +11,13 @@ class Spel
 {
 public:
     Spel(int aantalSpelers);
+    std::vector<Speler> VoegSpelersToe(int aantalSpelers);
 
 private:
     int aantalSpelers;
     std::vector<Speler> spelersVector;
+
+
 };
 
 #endif // SPEL_H

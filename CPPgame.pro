@@ -11,7 +11,8 @@ SOURCES += \
         heks.cpp \
         main.cpp \
         spel.cpp \
-        speler.cpp
+        speler.cpp \
+        weerwolf.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -22,4 +23,5 @@ HEADERS += \
     burger.h \
     heks.h \
     spel.h \
-    speler.h
+    speler.h \
+    weerwolf.h
