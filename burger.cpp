@@ -1,12 +1,7 @@
 #include "burger.h"
+#include<iostream>
 
 
-
-Burger::Burger(std::string naam)
-{
-    this->naam = naam;
-}
-
-void Burger::setName(std::string name){
-    this->naam = naam;
+void Burger::actieNacht(){
+    std::cout<< getNaam() << " Slaapt" << std::endl;
 }

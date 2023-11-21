@@ -1,19 +1,16 @@
 #ifndef BURGER_H
 #define BURGER_H
+
+#include "speler.h"
 #include <string>
 
 
-class Burger
+class Burger : public Speler
 {
 public:
-    Burger( std::string naam) : naam(naam) {}
-    std::string getName(void);
+    Burger(std::string naam):Speler(naam){}
+    void actieNacht();
 
-private:
-    void setName(std::string name);
-
-protected:
-    std::string naam;
 };
 
 #endif // BURGER_H

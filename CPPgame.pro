@@ -8,7 +8,10 @@ CONFIG += c++17 cmdline
 
 SOURCES += \
         burger.cpp \
-        main.cpp
+        heks.cpp \
+        main.cpp \
+        spel.cpp \
+        speler.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -16,4 +19,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    burger.h
+    burger.h \
+    heks.h \
+    spel.h \
+    speler.h
