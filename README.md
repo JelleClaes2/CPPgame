@@ -1,15 +1,15 @@
 # Weerwolven
 ## Basis
-- [ ] useful and correct class (explain why)
-- [ ] useful and correct abstraction (explain why)
-- [ ] useful and correct encapsulation (explain why)
-- [ ] useful and correct inheritance (explain why)
-- [ ] useful and correct polymorphism (explain why)
-- [ ] useful and correct object composition (explain why)
-- [ ] useful and correct base class
-- [ ] useful and correct abstract base class
-- [ ] useful and correct virtual function
-- [ ] no mistake in object-oriented programming
+- [X] useful and correct class (explain why)
+- [X] useful and correct abstraction (explain why)
+- [X] useful and correct encapsulation (explain why)
+- [X] useful and correct inheritance (explain why)
+- [X] useful and correct polymorphism (explain why)
+- [X] useful and correct object composition (explain why)
+- [X] useful and correct base class
+- [X] useful and correct abstract base class
+- [X] useful and correct virtual function
+- [X] no mistake in object-oriented programming
 
 ## Aanvullend
 ### Algemeen
