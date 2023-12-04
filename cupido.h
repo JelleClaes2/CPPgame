@@ -1,11 +1,13 @@
 #ifndef CUPIDO_H
 #define CUPIDO_H
+#include "burger.h"
 
 
-class Cupido
+class Cupido : public Burger
 {
 public:
-    Cupido();
+    Cupido(std::string naam):Burger(naam){}
+    void actieNacht();
 };
 
 #endif // CUPIDO_H
