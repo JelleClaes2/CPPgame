@@ -8,6 +8,7 @@ CONFIG += c++17 cmdline
 
 SOURCES += \
         burger.cpp \
+        cupido.cpp \
         heks.cpp \
         jager.cpp \
         main.cpp \
@@ -23,6 +24,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     burger.h \
+    cupido.h \
     heks.h \
     jager.h \
     spel.h \
