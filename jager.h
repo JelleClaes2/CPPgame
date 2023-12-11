@@ -7,6 +7,7 @@ class Jager : public Burger
 public:
     Jager(std::string naam):Burger(naam){}
     void actieNacht();
+    std::string getRol();
 };
 
 #endif // JAGER_H

@@ -16,10 +16,11 @@ class Spel
 {
 public:
     Spel(int aantalSpelers);
-    void VoegSpelersToe(int aantalSpelers);
-
+    void voegSpelersToe(int aantalSpelers);
+    void vulNamenIn();
     void nacht();
-
+    void getRollen();
+    void stemVoorBurgemeester(void);
 private:
     int aantalSpelers;
     std::vector<Speler*> spelersVector;

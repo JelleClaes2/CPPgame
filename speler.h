@@ -9,12 +9,15 @@ public:
     Speler( std::string naam) : naam(naam) {}
     std::string getNaam(void);
     virtual void actieNacht(void)  =0;
-
+    void setNaam(std::string naam);
+    virtual std::string getRol(void) =0;
+    void setBurgemeester(bool burgemeester);
+    bool getBurgemeester(void);
 private:
-    void setNaam(std::string name);
 
 protected:
     std::string naam;
+    bool burgermeester;
 };
 
 #endif // SPELER_H

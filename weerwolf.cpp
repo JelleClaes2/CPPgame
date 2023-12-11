@@ -5,3 +5,7 @@
 void Weerwolf::actieNacht(){
     std::cout<< "Weerwolf mag iemand vermoorden"<<std::endl;
 }
+
+std::string Weerwolf::getRol(){
+    return "Weerwolf";
+}
