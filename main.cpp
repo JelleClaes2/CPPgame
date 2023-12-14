@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
     nieuwSpel->vulNamenIn();
     //nieuwSpel->nacht();
     nieuwSpel->toonRollen();
+    nieuwSpel->eersteNacht();
     nieuwSpel->stemVoorBurgemeester();
 
     return 0;

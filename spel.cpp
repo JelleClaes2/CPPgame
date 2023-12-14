@@ -29,7 +29,7 @@ void Spel::voegSpelersToe(int aantalSpelers){
         }
 
         //Heks* heks = new Heks(heks);
-        spelersVector.push_back(new Heks("heks"));
+        spelersVector.push_back(new Heks("Heks"));
         break;
 
     case 9:
@@ -208,6 +208,13 @@ void Spel::voegSpelersToe(int aantalSpelers){
 
 void Spel::eersteNacht(){
     std::cout << "Al de inwoners van het dorp mogen gaan slapen" << std::endl;
+
+    Speler* dief = vindSpeler(DIEF);
+
+    if(dief != 0){
+        dief->actieNacht(spelersVector);
+        toonRollen();
+    }
 
     Speler* cupido = vindSpeler(CUPIDO);
 

@@ -8,6 +8,10 @@
 #include "burger.h"
 #include "heks.h"
 #include "weerwolf.h"
+#include "dief.h"
+#include "cupido.h"
+#include "jager.h"
+#include "ziener.h"
 #include "rollen.h"
 
 #include <vector>
