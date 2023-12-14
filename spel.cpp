@@ -203,13 +203,43 @@ void Spel::voegSpelersToe(int aantalSpelers){
     }
 
     std::shuffle(spelersVector.begin(), spelersVector.end(), std::default_random_engine(std::time(0)));
-
 }
 
 void Spel::nacht(){
-    for (Speler* spelers: spelersVector){
-        spelers->actieNacht();
+    if(aantalNachten == 0){
+        std::cout << "Al de inwoners van het dorp mogen gaan slapen" << std::endl;
+        for(Speler* spelers: spelersVector){
+            if(spelers->getRol() == "Cupido"){
+                std::string naamGeliefde1;
+                std::string naamGeliefde2;
+                std::cout << "Jij mag 2 spelers aan elkaar koppelen als 1 persoon vermoordt wordt gaat de andere ook dood aan liefdes verdriet." << std::endl;
+                std::cout << "Typ de naam van speler 1" << std::endl;
+                std::cin >> naamGeliefde1;
+                std::cout << "Typ de naam van speler 2" << std::endl;
+                std::cin >> naamGeliefde2;
+
+                for(Speler* spelersLiefde: spelersVector){
+                    if(naamGeliefde1 == spelersLiefde->getNaam()){
+                        spelersLiefde->setVerliefd(1);
+                    }else if(naamGeliefde2 == spelersLiefde->getNaam()){
+                        spelersLiefde->setVerliefd(1);
+                    } else {
+                        spelersLiefde->setVerliefd(0);
+                    }
+                }
+                std::cout << spelers->getNaam() << " jij mag weer gaan slapen" << std::endl;
+                std::cout << "Duw op enter om de namen te zien van het koppel" << std::endl;
+                getchar();
+                std::cout << naamGeliefde1 << " en " << naamGeliefde2 << " kijk elkaar liefdevol in de ogen <3" << std::endl;
+            }
+        }
     }
+
+
+
+    //for (Speler* spelers: spelersVector){
+        //spelers->actieNacht();
+    //}
 }
 
 void Spel::vulNamenIn(){
@@ -223,7 +253,7 @@ void Spel::vulNamenIn(){
     }
 }
 
-void Spel::getRollen(){
+void Spel::toonRollen(){
     int i=0;
     for (Speler* spelers: spelersVector){
         std::cout<< spelers->getNaam()<< " Duuw op enter om je rol te zien"<<std::endl;
@@ -239,11 +269,14 @@ void Spel::getRollen(){
 
 void Spel::stemVoorBurgemeester(){
     std::map<std::string, int> stemmen;
+    std::map<std::string, int>::iterator it;
+    int maxWaarden = 0;
+    std::string winnaar;
 
     for(Speler* spelers: spelersVector){
         std::string stem_op;
         do {
-            std::cout << spelers->getNaam() << ", op welke speler stem je? ";
+            std::cout << spelers->getNaam() << ", op welke speler stem je voor de burgemeester te zijn? ";
             std::cin >> stem_op;
 
             // Controleer of de speler niet op zichzelf stemt
@@ -255,14 +288,48 @@ void Spel::stemVoorBurgemeester(){
         // Tel de stemmen
         stemmen[stem_op]++;
     }
-    auto winnaar = std::max_element(stemmen.begin(), stemmen.end(), [](const auto& p1, const auto& p2) {return p1.second < p2.second;});
+
+    for(it = stemmen.begin(); it != stemmen.end(); it++){
+        std::cout << it->first << " " << it->second << std::endl;
+        if(it->second >= maxWaarden){
+            winnaar = it->first;
+            maxWaarden = it->second;
+        }
+    }
+
 
     for(Speler* spelers: spelersVector){
-        if(spelers->getNaam() == winnaar->first){
+        if(spelers->getNaam() == winnaar){
             spelers->setBurgemeester(1); // Set burgemeester voor de winaar
         }
     }
 
-    std::cout << winnaar->first << " is de nieuwe burgemeester met " << winnaar->second << " stemmen!" << std::endl;
+    std::cout << winnaar << " is de nieuwe burgemeester met " << maxWaarden << " stemmen!" << std::endl;
 
+}
+
+void Spel::stemVoorVerbaning(){
+    std::map<std::string, int> stemmen;
+
+    for(Speler* spelers: spelersVector){
+        std::string stem_op;
+        do {
+            std::cout << spelers->getNaam() << ", op welke speler stem je om iemand te verbannen? ";
+            std::cin >> stem_op;
+
+            // Controleer of de speler niet op zichzelf stemt
+            if (stem_op == spelers->getNaam()) {
+                std::cout << "Je kunt niet op jezelf stemmen." << std::endl;
+            }
+        } while (stem_op == spelers->getNaam());
+
+        // Tel de stemmen
+        stemmen[stem_op]++;
+    }
+
+    //zelfde als stemmen voor burgemeester
+}
+
+std::vector <Speler*> Spel::getSpelersVector(){
+    return spelersVector;
 }

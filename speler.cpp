@@ -17,3 +17,11 @@ void Speler::setBurgemeester(bool burgemeester){
 bool Speler::getBurgemeester(){
     return burgermeester;
 }
+
+void Speler::setVerliefd(bool isVerliefd){
+    this->isVerliefd = isVerliefd;
+}
+
+bool Speler::getVerliefd(){
+    return isVerliefd;
+}

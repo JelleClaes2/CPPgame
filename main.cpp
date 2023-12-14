@@ -26,8 +26,8 @@ int main(int argc, char *argv[])
     Spel* nieuwSpel = new Spel(aantalSpelers);
     nieuwSpel->voegSpelersToe(aantalSpelers);
     nieuwSpel->vulNamenIn();
-    nieuwSpel->nacht();
-    nieuwSpel->getRollen();
+    //nieuwSpel->nacht();
+    nieuwSpel->toonRollen();
     nieuwSpel->stemVoorBurgemeester();
 
     return 0;

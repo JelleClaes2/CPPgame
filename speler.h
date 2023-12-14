@@ -13,11 +13,14 @@ public:
     virtual std::string getRol(void) =0;
     void setBurgemeester(bool burgemeester);
     bool getBurgemeester(void);
+    void setVerliefd(bool isVerliefd);
+    bool getVerliefd(void);
 private:
 
 protected:
     std::string naam;
     bool burgermeester;
+    bool isVerliefd;
 };
 
 #endif // SPELER_H

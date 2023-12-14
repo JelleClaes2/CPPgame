@@ -19,13 +19,14 @@ public:
     void voegSpelersToe(int aantalSpelers);
     void vulNamenIn();
     void nacht();
-    void getRollen();
+    void toonRollen();
     void stemVoorBurgemeester(void);
+    void stemVoorVerbaning(void);
+    std::vector<Speler*> getSpelersVector(void);
 private:
     int aantalSpelers;
     std::vector<Speler*> spelersVector;
-
-
+    int aantalNachten;
 };
 
 #endif // SPEL_H
