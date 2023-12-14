@@ -25,17 +25,17 @@
 - [ ] working build manual as readme on GitHub (project must be possible to build from scratch on a clean PC)
 ### OOP
 - [ ] at least 2 default constructors
-- [ ] at least 2 parameterized constructors
+- [X] at least 2 parameterized constructors
 - [ ] at least 2 copy constructors
 - [ ] at least 2 destructors
-- [ ] member initialization in constructors (the stuff behind a colon)
-- [ ] constructor forwarding
-- [ ] useful proven (dynamic) polymorphism
-- [ ] useful usage of "this" (if the code does not work without it)
-- [ ] useful member function
+- [X] member initialization in constructors (the stuff behind a colon)
+- [X] constructor forwarding
+- [X] useful proven (dynamic) polymorphism
+- [X] useful usage of "this" (if the code does not work without it)
+- [X] useful member function
 - [ ] default values in function definition
-- [ ] useful member variabel
-- [ ] useful getters and setters for member variables
+- [X] useful member variabel
+- [X] useful getters and setters for member variables
 - [ ] correct usage of inline function
 - [ ] useful template function or class
 - [ ] useful friend function or class
@@ -45,12 +45,12 @@
 - [ ] at least 4 useful const references for variables
 - [ ] at least 4 useful const references for functions
 - [ ] at least 4 useful bool
-- [ ] dynamic memory allocation (new)
+- [X] dynamic memory allocation (new)
 - [ ] dynamic memory removing (delete)
-- [ ] 2 useful (modern) call-by-references
-- [ ] useful string class usage
+- [X] 2 useful (modern) call-by-references
+- [X] useful string class usage
 - [ ] useful container class
-- [ ] useful usage of nullptr
+- [X] useful usage of nullptr
 - [ ] useful usage of (modern) file-I/O
 - [ ] useful exception handling
 - [ ] useful usage of lambda function
