@@ -1,4 +1,5 @@
 #include "spel.h"
+
 #include <algorithm>
 #include <ctime>
 #include <random>
@@ -332,4 +333,13 @@ void Spel::stemVoorVerbaning(){
 
 std::vector <Speler*> Spel::getSpelersVector(){
     return spelersVector;
+}
+
+Speler* Spel::vindSpeler(rollen rol){
+    for(Speler* spelers: spelersVector){
+        if(spelers->getRol() == rol){
+            return spelers;
+        }
+    }
+    return 0;
 }

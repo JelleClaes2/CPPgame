@@ -6,6 +6,6 @@ void Burger::actieNacht(){
 }
 
 
-std::string Burger::getRol(){
-    return "Burger";
+enum ROLLEN Burger::getRol(){
+    return BURGER;
 }

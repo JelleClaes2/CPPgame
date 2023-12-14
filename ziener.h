@@ -8,7 +8,7 @@ class Ziener : public Burger
 public:
     Ziener(std::string naam):Burger(naam){}
     void actieNacht();
-    std::string getRol();
+    enum ROLLEN getRol();
 };
 
 #endif // ZIENER_H

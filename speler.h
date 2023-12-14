@@ -1,6 +1,7 @@
 #ifndef SPELER_H
 #define SPELER_H
 #include <string>
+#include "rollen.h"
 
 
 class Speler
@@ -10,7 +11,7 @@ public:
     std::string getNaam(void);
     virtual void actieNacht(void)  =0;
     void setNaam(std::string naam);
-    virtual std::string getRol(void) =0;
+    virtual enum ROLLEN getRol(void) =0;
     void setBurgemeester(bool burgemeester);
     bool getBurgemeester(void);
     void setVerliefd(bool isVerliefd);

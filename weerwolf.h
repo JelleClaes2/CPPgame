@@ -10,7 +10,7 @@ class Weerwolf : public Speler
 public:
     Weerwolf(std::string naam) : Speler(naam){}
     void actieNacht();
-    std::string getRol();
+    enum ROLLEN getRol();
 };
 
 #endif // WEERWOLF_H

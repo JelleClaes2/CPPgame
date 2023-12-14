@@ -5,6 +5,6 @@ void Jager::actieNacht(){
     std::cout<<"Als ik vermoord wordt snachts schiet ik nog iemand dood" <<std::endl;
 }
 
-std::string Jager::getRol(){
-    return "Jager";
+enum ROLLEN Jager::getRol(){
+    return JAGER;
 }

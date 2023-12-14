@@ -10,7 +10,7 @@ class Burger : public Speler
 public:
     Burger(std::string naam):Speler(naam){}
     void actieNacht();
-    std::string getRol();
+    enum ROLLEN getRol();
 };
 
 #endif // BURGER_H

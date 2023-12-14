@@ -8,6 +8,7 @@
 #include "burger.h"
 #include "heks.h"
 #include "weerwolf.h"
+#include "rollen.h"
 
 #include <vector>
 
@@ -23,6 +24,8 @@ public:
     void stemVoorBurgemeester(void);
     void stemVoorVerbaning(void);
     std::vector<Speler*> getSpelersVector(void);
+    Speler* vindSpeler(enum rollen rol);
+
 private:
     int aantalSpelers;
     std::vector<Speler*> spelersVector;

@@ -1,14 +1,14 @@
 #ifndef ROLLEN_H
 #define ROLLEN_H
 
-enum rollen{
-    Weerwolf,
-    Burger,
-    Dief,
-    Cupido,
-    Heks,
-    Jager,
-    Ziener
+enum ROLLEN{
+    WEERWOLF,
+    BURGER,
+    DIEF,
+    CUPIDO,
+    HEKS,
+    JAGER,
+    ZIENER
 };
 
 #endif // ROLLEN_H
