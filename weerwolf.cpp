@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-void Weerwolf::actieNacht(){
+void Weerwolf::actieNacht(std::vector <Speler*> spelersVector){
     std::cout<< "Weerwolf mag iemand vermoorden"<<std::endl;
 }
 

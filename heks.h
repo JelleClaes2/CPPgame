@@ -7,7 +7,7 @@ class Heks : public Burger
 {
 public:
     Heks(std::string naam):Burger(naam){}
-    void actieNacht();
+    void actieNacht(std::vector <Speler*> spelersVector);
     enum ROLLEN getRol();
 };
 

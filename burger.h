@@ -9,7 +9,7 @@ class Burger : public Speler
 {
 public:
     Burger(std::string naam):Speler(naam){}
-    void actieNacht();
+    void actieNacht(std::vector <Speler*> spelersVector);
     enum ROLLEN getRol();
 };
 

@@ -9,7 +9,7 @@ class Weerwolf : public Speler
 {
 public:
     Weerwolf(std::string naam) : Speler(naam){}
-    void actieNacht();
+    void actieNacht(std::vector <Speler*> spelersVector);
     enum ROLLEN getRol();
 };
 

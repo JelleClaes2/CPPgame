@@ -206,41 +206,18 @@ void Spel::voegSpelersToe(int aantalSpelers){
     std::shuffle(spelersVector.begin(), spelersVector.end(), std::default_random_engine(std::time(0)));
 }
 
-void Spel::nacht(){
-    if(aantalNachten == 0){
-        std::cout << "Al de inwoners van het dorp mogen gaan slapen" << std::endl;
-        for(Speler* spelers: spelersVector){
-            if(spelers->getRol() == "Cupido"){
-                std::string naamGeliefde1;
-                std::string naamGeliefde2;
-                std::cout << "Jij mag 2 spelers aan elkaar koppelen als 1 persoon vermoordt wordt gaat de andere ook dood aan liefdes verdriet." << std::endl;
-                std::cout << "Typ de naam van speler 1" << std::endl;
-                std::cin >> naamGeliefde1;
-                std::cout << "Typ de naam van speler 2" << std::endl;
-                std::cin >> naamGeliefde2;
+void Spel::eersteNacht(){
+    std::cout << "Al de inwoners van het dorp mogen gaan slapen" << std::endl;
 
-                for(Speler* spelersLiefde: spelersVector){
-                    if(naamGeliefde1 == spelersLiefde->getNaam()){
-                        spelersLiefde->setVerliefd(1);
-                    }else if(naamGeliefde2 == spelersLiefde->getNaam()){
-                        spelersLiefde->setVerliefd(1);
-                    } else {
-                        spelersLiefde->setVerliefd(0);
-                    }
-                }
-                std::cout << spelers->getNaam() << " jij mag weer gaan slapen" << std::endl;
-                std::cout << "Duw op enter om de namen te zien van het koppel" << std::endl;
-                getchar();
-                std::cout << naamGeliefde1 << " en " << naamGeliefde2 << " kijk elkaar liefdevol in de ogen <3" << std::endl;
-            }
-        }
+    Speler* cupido = vindSpeler(CUPIDO);
+
+    if(cupido != 0){
+        cupido->actieNacht(spelersVector);
     }
+}
 
-
-
-    //for (Speler* spelers: spelersVector){
-        //spelers->actieNacht();
-    //}
+void Spel::nacht(){
+        std::cout << "Al de inwoners van het dorp mogen gaan slapen" << std::endl;
 }
 
 void Spel::vulNamenIn(){
@@ -335,7 +312,7 @@ std::vector <Speler*> Spel::getSpelersVector(){
     return spelersVector;
 }
 
-Speler* Spel::vindSpeler(rollen rol){
+Speler* Spel::vindSpeler(ROLLEN rol){
     for(Speler* spelers: spelersVector){
         if(spelers->getRol() == rol){
             return spelers;
