@@ -29,6 +29,7 @@ HEADERS += \
     dief.h \
     heks.h \
     jager.h \
+    rollen.h \
     spel.h \
     speler.h \
     weerwolf.h \
