@@ -211,20 +211,26 @@ void Spel::eersteNacht(){
 
     Speler* dief = vindSpeler(DIEF);
 
-    if(dief != 0){
+    if(dief != nullptr){
         dief->actieNacht(spelersVector);
         toonRollen();
     }
 
     Speler* cupido = vindSpeler(CUPIDO);
 
-    if(cupido != 0){
+    if(cupido != nullptr){
         cupido->actieNacht(spelersVector);
     }
+
+    nacht();
 }
 
 void Spel::nacht(){
-        std::cout << "Al de inwoners van het dorp mogen gaan slapen" << std::endl;
+    Speler* ziener = vindSpeler(ZIENER);
+
+    if(ziener != nullptr){
+        ziener->actieNacht(spelersVector);
+    }
 }
 
 void Spel::vulNamenIn(){
@@ -325,5 +331,5 @@ Speler* Spel::vindSpeler(ROLLEN rol){
             return spelers;
         }
     }
-    return 0;
+    return nullptr;
 }

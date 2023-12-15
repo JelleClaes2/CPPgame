@@ -21,7 +21,7 @@ void Cupido::actieNacht(std::vector <Speler*> spelersVector){
         }
     }
 
-    std::cout << this->naam << " jij mag weer gaan slapen" << std::endl;
+    std::cout << getNaam() << " jij mag weer gaan slapen" << std::endl;
     std::cout << "Duw op enter om de namen te zien van het koppel" << std::endl;
     getchar();
     std::cout << naamGeliefde1 << " en " << naamGeliefde2 << " kijk elkaar liefdevol in de ogen <3" << std::endl;

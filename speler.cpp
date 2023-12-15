@@ -25,3 +25,11 @@ void Speler::setVerliefd(bool isVerliefd){
 bool Speler::getVerliefd(){
     return isVerliefd;
 }
+
+void Speler::setIsVermoord(bool isVermoord){
+    this->isVermoord = isVermoord;
+}
+
+bool Speler::getIsVermoord(){
+    return isVermoord;
+}
