@@ -10,6 +10,8 @@ public:
     void actieNacht(std::vector <Speler*> spelersVector);
     enum ROLLEN getRol();
 
+private:
+
     void setTotLevenGebracht(bool totLevenGebracht);
     bool getTotLevenGebracht(void);
 

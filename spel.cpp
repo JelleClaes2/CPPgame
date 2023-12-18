@@ -288,7 +288,6 @@ void Spel::stemVoorBurgemeester(){
         }
     }
 
-
     for(Speler* spelers: spelersVector){
         if(spelers->getNaam() == winnaar){
             spelers->setBurgemeester(1); // Set burgemeester voor de winaar
@@ -296,11 +295,13 @@ void Spel::stemVoorBurgemeester(){
     }
 
     std::cout << winnaar << " is de nieuwe burgemeester met " << maxWaarden << " stemmen!" << std::endl;
-
 }
 
 void Spel::stemVoorVerbaning(){
     std::map<std::string, int> stemmen;
+    std::map<std::string, int>::iterator it;
+    int maxWaarden = 0;
+    std::string winnaar;
 
     for(Speler* spelers: spelersVector){
         std::string stem_op;
@@ -314,11 +315,29 @@ void Spel::stemVoorVerbaning(){
             }
         } while (stem_op == spelers->getNaam());
 
-        // Tel de stemmen
-        stemmen[stem_op]++;
+        if(spelers->getBurgemeester() == 1){
+            stemmen[stem_op] += 2;
+        }else{
+            stemmen[stem_op]++;
+        }
+
     }
 
-    //zelfde als stemmen voor burgemeester
+    for(it = stemmen.begin(); it != stemmen.end(); it++){
+        std::cout << it->first << " " << it->second << std::endl;
+        if(it->second >= maxWaarden){
+            winnaar = it->first;
+            maxWaarden = it->second;
+        }
+    }
+
+    for(Speler* spelers: spelersVector){
+        if(spelers->getNaam() == winnaar){
+            std::cout << spelers->getNaam() << " jij bent verbannen" << std::endl;
+            std::count << "Jouw rol was: " << spelers->getRol();
+            spelers->setIsVermoord(1);
+        }
+    }
 }
 
 std::vector <Speler*> Spel::getSpelersVector(){
@@ -332,4 +351,16 @@ Speler* Spel::vindSpeler(ROLLEN rol){
         }
     }
     return nullptr;
+}
+
+void Spel::dag(){
+    std::cout<< "Iedereen mag weer wakker" << std::endl;
+
+    for(Speler* spelers: spelersVector){
+        if(spelers->getIsVermoord() == 1){
+            std::cout<< spelers->getNaam() << " jij bent vancht vermoord" << std::endl;
+        }
+    }
+
+    std::cout << "We gaan stemmen stemmen om een verdacht persoon te vermoorden van het dorp" << std::endl;
 }

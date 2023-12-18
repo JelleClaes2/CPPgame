@@ -18,12 +18,15 @@ public:
     bool getBurgemeester(void);
     void setVerliefd(bool isVerliefd);
     bool getVerliefd(void);
+    void setIsVermoord(bool isVermoord);
+    bool getIsVermoord(void);
 private:
 
 protected:
     std::string naam;
     bool burgermeester;
     bool isVerliefd;
+    bool isVermoord;
 };
 
 #endif // SPELER_H

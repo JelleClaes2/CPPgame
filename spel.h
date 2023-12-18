@@ -30,6 +30,7 @@ public:
     void stemVoorVerbaning(void);
     std::vector<Speler*> getSpelersVector(void);
     Speler* vindSpeler(ROLLEN rol);
+    void dag(void);
 
 private:
     int aantalSpelers;
