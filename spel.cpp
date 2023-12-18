@@ -401,3 +401,33 @@ std::string Spel::displayRol(ROLLEN rol){
         return "onbekende rol";
     }
 }
+
+void Spel::vermoorden(){
+    std::map<std::string, int> stemmen;
+    std::map<std::string, int>::iterator it;
+    int maxWaarden = 0;
+    std::string winnaar;
+
+    for(Speler* spelers: spelersVector){
+        if(spelers->getRol() == WEERWOLF){
+            std::string stemOp;
+            std::cout << spelers->getNaam() << " op welke speler wil jij vermoorden?" << std::endl;
+            std::cin >> stemOp;
+
+            stemmen[stem_op]++;
+
+            for(it = stemmen.begin(); it != stemmen.end(); it++){
+                if(it->second >= maxWaarden){
+                    winnaar = it->first;
+                    maxWaarden = it->second;
+                }
+            }
+
+            for(Speler* spelers: spelersVector){
+                if(spelers->getNaam() == winnaar){
+                    spelers->setIsVermoord(1); // Set burgemeester voor de winaar
+                }
+            }
+        }
+    }
+}

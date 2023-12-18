@@ -36,6 +36,7 @@ private:
     std::vector<Speler*> spelersVector;
     void verwijderSpeler(void);
     std::string displayRol(ROLLEN rol);
+    void vermoorden(void);
 };
 
 #endif // SPEL_H
