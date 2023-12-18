@@ -44,7 +44,7 @@
 - [ ] 2 useful unsigned chars or other better usage of memory efficient type
 - [ ] at least 4 useful const references for variables
 - [ ] at least 4 useful const references for functions
-- [ ] at least 4 useful bool
+- [X] at least 4 useful bool
 - [X] dynamic memory allocation (new)
 - [ ] dynamic memory removing (delete)
 - [X] 2 useful (modern) call-by-references
