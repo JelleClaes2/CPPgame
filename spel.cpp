@@ -375,6 +375,19 @@ void Spel::verwijderSpeler(){
 
     for(it = spelersVector.begin() ; it != spelersVector.end() ; it++ ){
         if((*it)->getIsVermoord() == 1){
+            if((*it)->getRol() == JAGER){
+                std::string doodGeschoten;
+                std::cout << (*it)->getNaam() << " je mag nog iemand mee je graf in nemen wie kies je?" << std::endl;
+                std::cin >> doodGeschoten;
+
+                std::vector<Speler*>::iterator itJager;
+                for(itJager = spelersVector.begin() ; itJager != spelersVector.end() ; itJager++){
+                    if((*it)->getNaam() == doodGeschoten){
+                        spelersVector.erase(itJager);
+                        delete(*itJager);
+                    }
+                }
+            }
             spelersVector.erase(it);
             delete(*it);
         }
@@ -414,7 +427,7 @@ void Spel::vermoorden(){
             std::cout << spelers->getNaam() << " op welke speler wil jij vermoorden?" << std::endl;
             std::cin >> stemOp;
 
-            stemmen[stem_op]++;
+            stemmen[stemOp]++;
 
             for(it = stemmen.begin(); it != stemmen.end(); it++){
                 if(it->second >= maxWaarden){
