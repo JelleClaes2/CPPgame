@@ -49,7 +49,7 @@
 - [ ] dynamic memory removing (delete)
 - [X] 2 useful (modern) call-by-references
 - [X] useful string class usage
-- [ ] useful container class
+- [X] useful container class
 - [X] useful usage of nullptr
 - [ ] useful usage of (modern) file-I/O
 - [ ] useful exception handling
