@@ -253,7 +253,7 @@ void Spel::toonRollen(){
         }
         i++;
         getchar();
-        std::cout<< spelers->getNaam()<< " Jouw rol is "<< spelers->getRol()<<std::endl;
+        std::cout<< spelers->getNaam()<< " Jouw rol is "<< displayRol(spelers->getRol())<<std::endl;
         std::cout<<"Geef de laptop door aan de volgende speler"<< std::endl<<std::endl;
     }
 }
@@ -334,8 +334,9 @@ void Spel::stemVoorVerbaning(){
     for(Speler* spelers: spelersVector){
         if(spelers->getNaam() == winnaar){
             std::cout << spelers->getNaam() << " jij bent verbannen" << std::endl;
-            std::count << "Jouw rol was: " << spelers->getRol();
+            std::cout << "Jouw rol was: " << displayRol(spelers->getRol());
             spelers->setIsVermoord(1);
+            verwijderSpeler();
         }
     }
 }
@@ -359,8 +360,44 @@ void Spel::dag(){
     for(Speler* spelers: spelersVector){
         if(spelers->getIsVermoord() == 1){
             std::cout<< spelers->getNaam() << " jij bent vancht vermoord" << std::endl;
+            std::cout << "Jouw rol was: " << displayRol(spelers->getRol());
+            verwijderSpeler();
         }
     }
 
     std::cout << "We gaan stemmen stemmen om een verdacht persoon te vermoorden van het dorp" << std::endl;
+
+    stemVoorVerbaning();
+}
+
+void Spel::verwijderSpeler(){
+    std::vector<Speler*>::iterator it ;
+
+    for(it = spelersVector.begin() ; it != spelersVector.end() ; it++ ){
+        if((*it)->getIsVermoord() == 1){
+            spelersVector.erase(it);
+            delete(*it);
+        }
+    }
+}
+
+std::string Spel::displayRol(ROLLEN rol){
+    switch (rol) {
+    case WEERWOLF:
+        return "Weerwolf";
+    case BURGER:
+        return "Burger";
+    case HEKS:
+        return "Heks";
+    case CUPIDO:
+        return "Cupido";
+    case DIEF:
+        return "Dief";
+    case JAGER:
+        return "Jager";
+    case ZIENER:
+        return "Ziener";
+    default:
+        return "onbekende rol";
+    }
 }

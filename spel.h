@@ -31,10 +31,11 @@ public:
     std::vector<Speler*> getSpelersVector(void);
     Speler* vindSpeler(ROLLEN rol);
     void dag(void);
-
 private:
     int aantalSpelers;
     std::vector<Speler*> spelersVector;
+    void verwijderSpeler(void);
+    std::string displayRol(ROLLEN rol);
 };
 
 #endif // SPEL_H
