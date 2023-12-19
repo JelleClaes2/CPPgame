@@ -388,6 +388,17 @@ void Spel::verwijderSpeler(){
                     }
                 }
             }
+
+            if((*it)->getVerliefd() == 1){
+                std::vector<Speler*>::iterator itVerliefd;
+                for(itVerliefd= spelersVector.begin() ; itVerliefd !=spelersVector.end() ; itVerliefd++){
+                    if(((*itVerliefd)->getIsVermoord() == 0) & ((*itVerliefd)->getVerliefd() == 1)  ){
+                        spelersVector.erase(itVerliefd);
+                        delete(*itVerliefd);
+                    }
+                }
+
+            }
             spelersVector.erase(it);
             delete(*it);
         }
@@ -438,7 +449,7 @@ void Spel::vermoorden(){
 
             for(Speler* spelers: spelersVector){
                 if(spelers->getNaam() == winnaar){
-                    spelers->setIsVermoord(1); // Set burgemeester voor de winaar
+                    spelers->setIsVermoord(1);
                 }
             }
         }

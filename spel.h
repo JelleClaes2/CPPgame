@@ -27,9 +27,8 @@ public:
     void nacht();
     void toonRollen();
     void stemVoorBurgemeester(void);
-    void stemVoorVerbaning(void);
-    std::vector<Speler*> getSpelersVector(void);
-    Speler* vindSpeler(ROLLEN rol);
+    std::vector<Speler*> getSpelersVector(void);//overbodig?
+
     void dag(void);
 private:
     int aantalSpelers;
@@ -37,6 +36,8 @@ private:
     void verwijderSpeler(void);
     std::string displayRol(ROLLEN rol);
     void vermoorden(void);
+    void stemVoorVerbaning(void);
+     Speler* vindSpeler(ROLLEN rol);
 };
 
 #endif // SPEL_H
