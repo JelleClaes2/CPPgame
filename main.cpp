@@ -4,6 +4,10 @@
 #define MINSPELERS 8
 #define MAXSPELERS 18
 
+using namespace SpelNS;
+
+
+
 int main(int argc, char *argv[])
 {
     int aantalSpelers;

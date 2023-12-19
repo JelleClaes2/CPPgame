@@ -13,6 +13,9 @@
 
 #include <vector>
 
+namespace SpelNS {
+
+
 
 class Spel
 {
@@ -27,7 +30,7 @@ public:
     bool checkEindeSpel(void);
     void dag(void);
 
-    static std::string displayRol(ROLLEN rol);
+    static inline std::string displayRol(ROLLEN rol);
 private:
     int aantalSpelers;
     std::vector<Speler*> spelersVector;
@@ -37,5 +40,7 @@ private:
     void stemVoorVerbaning(void);
     Speler* vindSpeler(ROLLEN rol);
 };
+
+}
 
 #endif // SPEL_H

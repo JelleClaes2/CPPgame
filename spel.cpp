@@ -6,6 +6,8 @@
 #include <iostream>
 #include <map>
 
+using namespace SpelNS;
+
 Spel::Spel(int aantalSpelers)
 {
     this->aantalSpelers = aantalSpelers;
