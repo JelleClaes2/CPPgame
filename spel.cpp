@@ -14,193 +14,46 @@ Spel::Spel(int aantalSpelers)
 void Spel::voegSpelersToe(int aantalSpelers){
     std::string naamWeerwolven;
     std::string naamBurger;
-    switch(aantalSpelers){
-    case 8:
-        for(int i = 1 ; i<=2 ; i++){
-            naamWeerwolven = "Weerwolf" + std::to_string(i);
-            //Weerwolf* weerWolf = new Weerwolf(naamWeerwolven);
-            spelersVector.push_back(new Weerwolf(naamWeerwolven));
-        }
 
-        for(int i=1; i<=5 ; i++){
-            naamBurger = "Burger" + std::to_string(i);
-            //Burger* naamBurger = new Burger(naamBurger);
-            spelersVector.push_back(new Burger(naamBurger));
-        }
+    int aantalWeerwolven = 2;
 
-        //Heks* heks = new Heks(heks);
-        spelersVector.push_back(new Heks("Heks"));
-        break;
 
-    case 9:
-        for(int i = 1 ; i<=2 ; i++){
-            naamWeerwolven = "Weerwolf" + std::to_string(i);
-            //Weerwolf* naamWeerwolven = new Weerwolf(naamWeerwolven);
-            spelersVector.push_back(new Weerwolf(naamWeerwolven));
-        }
 
-        for(int i=1; i<=6 ; i++){
-            naamBurger = "Burger" + std::to_string(i);
-            //Burger* naamBurger = new Burger(naamBurger);
-            spelersVector.push_back(new Burger(naamBurger));
-        }
+    if(aantalSpelers >= 12){
+        aantalWeerwolven = 3;
+    }
 
-        //Heks* heks = new Heks(heks);
-        spelersVector.push_back(new Heks("heks"));
-        break;
+    int aantalSpecialeBurgers= aantalSpelers/3;
 
-    case 10:
-        for(int i = 1 ; i<=2 ; i++){
-            naamWeerwolven = "Weerwolf" + std::to_string(i);
-            //Weerwolf* naamWeerwolven = new Weerwolf(naamWeerwolven);
-            spelersVector.push_back(new Weerwolf(naamWeerwolven));
-        }
 
-        for(int i=1; i<=7 ; i++){
-            naamBurger = "Burger" + std::to_string(i);
-            //Burger* naamBurger = new Burger(naamBurger);
-            spelersVector.push_back(new Burger(naamBurger));
-        }
 
-        //Heks* heks = new Heks(heks);
-        spelersVector.push_back(new Heks("heks"));
-        break;
+    int aantalBurgers = aantalSpelers - aantalWeerwolven - aantalSpecialeBurgers;
 
-    case 11:
-        for(int i = 1 ; i<=2 ; i++){
-            naamWeerwolven = "Weerwolf" + std::to_string(i);
-            //Weerwolf* naamWeerwolven = new Weerwolf(naamWeerwolven);
-            spelersVector.push_back(new Weerwolf(naamWeerwolven));
-        }
+    //voeg weerwolven toe
+    for(int i = 1 ; i<=aantalWeerwolven ; i++){
+        naamWeerwolven = "Weerwolf" + std::to_string(i);
+        spelersVector.push_back(new Weerwolf(naamWeerwolven));
+    }
 
-        for(int i=1; i<=8 ; i++){
-            naamWeerwolven = "Burger" + std::to_string(i);
-            //Burger* naamBurger = new Burger(naamBurger);
-            spelersVector.push_back(new Burger(naamBurger));
-        }
+    //voeg burgers toe
+    for(int i=1; i<=aantalBurgers ; i++){
+        naamBurger = "Burger" + std::to_string(i);
+        //Burger* naamBurger = new Burger(naamBurger);
+        spelersVector.push_back(new Burger(naamBurger));
+    }
 
-        //Heks* heks = new Heks(heks);
-        spelersVector.push_back(new Heks("heks"));
-        break;
+    //voeg speciale burgers toe
+    std::vector<Speler*>specialeBurgerVector;
+    specialeBurgerVector.push_back(new Cupido("Cupido"));
+    specialeBurgerVector.push_back(new Dief("Dief"));
+    specialeBurgerVector.push_back(new Heks("Heks"));
+    specialeBurgerVector.push_back(new Jager("Jager"));
+    specialeBurgerVector.push_back(new Ziener("Ziener"));
 
-    case 12:
-        for(int i = 1 ; i<=3 ; i++){
-            naamWeerwolven = "Weerwolf" + std::to_string(i);
-            //Weerwolf* naamWeerwolven = new Weerwolf(naamWeerwolven);
-            spelersVector.push_back(new Weerwolf(naamWeerwolven));
-        }
+    std::shuffle(specialeBurgerVector.begin(), specialeBurgerVector.end(), std::default_random_engine(std::time(0)));
 
-        for(int i=1; i<=8 ; i++){
-            naamBurger = "Burger" + std::to_string(i);
-            //Burger* naamBurger = new Burger(naamBurger);
-            spelersVector.push_back(new Burger(naamBurger));
-        }
-
-        //Heks* heks = new Heks(heks);
-        spelersVector.push_back(new Heks("heks"));
-        break;
-
-    case 13:
-        for(int i = 1 ; i<=3 ; i++){
-            naamWeerwolven = "Weerwolf" + std::to_string(i);
-            //Weerwolf* naamWeerwolven = new Weerwolf(naamWeerwolven);
-            spelersVector.push_back(new Weerwolf(naamWeerwolven));
-        }
-
-        for(int i=1; i<=9 ; i++){
-            naamWeerwolven = "Burger" + std::to_string(i);
-            //Burger* naamBurger = new Burger(naamBurger);
-            spelersVector.push_back(new Burger(naamBurger));
-        }
-
-        spelersVector.push_back(new Heks("heks"));
-        //Heks* heks = new Heks(heks);
-        break;
-
-    case 14:
-        for(int i = 1 ; i<=3 ; i++){
-            naamWeerwolven = "Weerwolf" + std::to_string(i);
-            //Weerwolf* naamWeerwolven = new Weerwolf(naamWeerwolven);
-            spelersVector.push_back(new Weerwolf(naamWeerwolven));
-        }
-
-        for(int i=1; i<=10 ; i++){
-            naamBurger = "Burger" + std::to_string(i);
-            //Burger* naamBurger = new Burger(naamBurger);
-            spelersVector.push_back(new Burger(naamBurger));
-        }
-
-        //Heks* heks = new Heks(heks);
-        spelersVector.push_back(new Heks("heks"));
-        break;
-
-    case 15:
-        for(int i = 1 ; i<=3 ; i++){
-            naamWeerwolven = "Weerwolf" + std::to_string(i);
-            //Weerwolf* naamWeerwolven = new Weerwolf(naamWeerwolven);
-            spelersVector.push_back(new Weerwolf(naamWeerwolven));
-        }
-
-        for(int i=1; i<=11 ; i++){
-            naamBurger = "Burger" + std::to_string(i);
-            //Burger* naamBurger = new Burger(naamBurger);
-            spelersVector.push_back(new Burger(naamBurger));
-        }
-
-        //Heks* heks = new Heks(heks);
-        spelersVector.push_back(new Heks("heks"));
-        break;
-
-    case 16:
-        for(int i = 1 ; i<=3 ; i++){
-            naamWeerwolven = "Weerwolf" + std::to_string(i);
-            //Weerwolf* naamWeerwolven = new Weerwolf(naamWeerwolven);
-            spelersVector.push_back(new Weerwolf(naamWeerwolven));
-        }
-
-        for(int i=1; i<=12 ; i++){
-            naamBurger = "Burger" + std::to_string(i);
-            //Burger* naamBurger = new Burger(naamBurger);
-            spelersVector.push_back(new Burger(naamBurger));
-        }
-
-        //Heks* heks = new Heks(heks);
-        spelersVector.push_back(new Heks("heks"));
-        break;
-
-    case 17:
-        for(int i = 1 ; i<=3 ; i++){
-            naamWeerwolven = "Weerwolf" + std::to_string(i);
-            //Weerwolf* naamWeerwolven = new Weerwolf(naamWeerwolven);
-            spelersVector.push_back(new Weerwolf(naamWeerwolven));
-        }
-
-        for(int i=1; i<=13 ; i++){
-            naamBurger = "Burger" + std::to_string(i);
-            //Burger* naamBurger = new Burger(naamBurger);
-            spelersVector.push_back(new Burger(naamBurger));
-        }
-
-        //Heks* heks = new Heks(heks);
-        spelersVector.push_back(new Heks("heks"));
-        break;
-
-    case 18:
-        for(int i = 1 ; i<=3 ; i++){
-            naamWeerwolven = "Weerwolf" + std::to_string(i);
-            //Weerwolf* naamWeerwolven = new Weerwolf(naamWeerwolven);
-            spelersVector.push_back(new Weerwolf(naamWeerwolven));
-        }
-
-        for(int i=1; i<=14 ; i++){
-            naamBurger = "Burger" + std::to_string(i);
-            //Burger* naamBurger = new Burger(naamBurger);
-            spelersVector.push_back(new Burger(naamBurger));
-        }
-
-        //Heks* heks = new Heks(heks);
-        spelersVector.push_back(new Heks("heks"));
-        break;
+    for(int i=1 ; i<= aantalSpecialeBurgers ;i++){
+        spelersVector.push_back(specialeBurgerVector[i - 1]);
     }
 
     std::shuffle(spelersVector.begin(), spelersVector.end(), std::default_random_engine(std::time(0)));
@@ -341,9 +194,6 @@ void Spel::stemVoorVerbaning(){
     }
 }
 
-std::vector <Speler*> Spel::getSpelersVector(){
-    return spelersVector;
-}
 
 Speler* Spel::vindSpeler(ROLLEN rol){
     for(Speler* spelers: spelersVector){

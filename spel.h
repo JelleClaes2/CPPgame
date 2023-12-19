@@ -27,7 +27,6 @@ public:
     void nacht();
     void toonRollen();
     void stemVoorBurgemeester(void);
-    std::vector<Speler*> getSpelersVector(void);//overbodig?
 
     void dag(void);
 private:
