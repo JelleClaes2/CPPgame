@@ -1,6 +1,9 @@
 #include "spel.h"
 #include"iostream"
 
+#define MINSPELERS 8
+#define MAXSPELERS 18
+
 int main(int argc, char *argv[])
 {
     int aantalSpelers;
@@ -8,8 +11,8 @@ int main(int argc, char *argv[])
     std::cin >> aantalSpelers;
 
     while(1){
-        if(aantalSpelers>=8){
-            if(aantalSpelers <=18){
+        if(aantalSpelers>=MINSPELERS){
+            if(aantalSpelers <=MAXSPELERS){
                 std::cout << "Het spel wordt aangemaakt" << std::endl;
                 break;
             }

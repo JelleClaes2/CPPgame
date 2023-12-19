@@ -1,9 +1,6 @@
 #ifndef SPEL_H
 #define SPEL_H
 
-#define MINSPELERS 8
-#define MAXSPELERS 18
-
 #include "speler.h"
 #include "burger.h"
 #include "heks.h"
@@ -22,12 +19,12 @@ class Spel
 public:
     Spel(int aantalSpelers);
     void voegSpelersToe(int aantalSpelers);
-    void vulNamenIn();
-    void eersteNacht();
-    void nacht();
-    void toonRollen();
+    void vulNamenIn(void);
+    void eersteNacht(void);
+    void nacht(void);
+    void toonRollen(void);
     void stemVoorBurgemeester(void);
-
+    bool checkEindeSpel(void);
     void dag(void);
 private:
     int aantalSpelers;
@@ -36,7 +33,7 @@ private:
     std::string displayRol(ROLLEN rol);
     void vermoorden(void);
     void stemVoorVerbaning(void);
-     Speler* vindSpeler(ROLLEN rol);
+    Speler* vindSpeler(ROLLEN rol);
 };
 
 #endif // SPEL_H

@@ -242,7 +242,7 @@ void Spel::verwijderSpeler(){
             if((*it)->getVerliefd() == 1){
                 std::vector<Speler*>::iterator itVerliefd;
                 for(itVerliefd= spelersVector.begin() ; itVerliefd !=spelersVector.end() ; itVerliefd++){
-                    if(((*itVerliefd)->getIsVermoord() == 0) & ((*itVerliefd)->getVerliefd() == 1)  ){
+                    if(((*itVerliefd)->getIsVermoord() == 0) && ((*itVerliefd)->getVerliefd() == 1)  ){
                         spelersVector.erase(itVerliefd);
                         delete(*itVerliefd);
                     }
@@ -303,5 +303,31 @@ void Spel::vermoorden(){
                 }
             }
         }
+    }
+}
+
+
+bool Spel::checkEindeSpel(){
+    int aantalWeerwolven = 0;
+    int aantalBurgers = 0;
+    for(Speler* spelers: spelersVector){
+        if(spelers->getRol() == WEERWOLF){
+            aantalWeerwolven ++;
+        } else{
+            aantalBurgers++;
+        }
+    }
+
+    if(aantalWeerwolven == 0){
+        std::cout << "De burgers hebben gewonnen" << std::endl;
+        return 0;
+    } else if(aantalBurgers == 0){
+        std::cout << "De weerwolven hebben gewonnen" << std::endl;
+        return 0;
+    }else if(((aantalBurgers + aantalWeerwolven) == 2) && (spelersVector[0]->getVerliefd() == 1) ){
+        std::cout << "Het kopeltje heeft gewonnen" << std::endl;
+        return 0;
+    } else {
+        return 1;
     }
 }
