@@ -14,11 +14,11 @@ public:
     virtual void actieNacht(std::vector <Speler*> spelersVector)  =0;
     void setNaam(std::string naam);
     virtual enum ROLLEN getRol(void) =0;
-    void setBurgemeester(bool burgemeester);
+    void setBurgemeester(bool burgemeester = 0);
     bool getBurgemeester(void);
-    void setVerliefd(bool isVerliefd);
+    void setVerliefd(bool isVerliefd = 0);
     bool getVerliefd(void);
-    void setIsVermoord(bool isVermoord);
+    void setIsVermoord(bool isVermoord = 0);
     bool getIsVermoord(void);
 private:
 
