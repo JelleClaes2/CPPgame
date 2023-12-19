@@ -59,8 +59,8 @@
 - [ ] useful Qt class
 - [ ] useful usage of signals/slots
 - [ ] test-driven development (= written test plan or unit tests)
-- [ ] solve bug ticket (with pull request or commit message issue link and issue branch)
-- [ ] report a bug ticket on another project
+- [X] solve bug ticket (with pull request or commit message issue link and issue branch)
+- [X] report a bug ticket on another project
 - [ ] usage of a GUI
 - [ ] usage of OpenGL or other 3D engine
 - [ ] useful usage of an external library (not Qt)
