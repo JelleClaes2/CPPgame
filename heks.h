@@ -7,8 +7,11 @@ class Heks : public Burger
 {
 public:
     Heks(std::string naam):Burger(naam){}
+    Heks():Burger("Heks"){}
     void actieNacht(std::vector <Speler*> spelersVector);
     enum ROLLEN getRol();
+
+    ~Heks(){}
 
 private:
 

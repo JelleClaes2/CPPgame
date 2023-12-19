@@ -10,6 +10,11 @@ class Burger : public Speler
 {
 public:
     Burger(std::string naam):Speler(naam){}
+    Burger(Burger &burger):Speler(burger.naam){
+        this->setIsVermoord(burger.getIsVermoord());
+        this->setBurgemeester(burger.getBurgemeester());
+        this->setVerliefd(burger.getVerliefd());
+    }
     void actieNacht(std::vector <Speler*> spelersVector);
     enum ROLLEN getRol();
 

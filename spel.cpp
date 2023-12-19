@@ -38,17 +38,16 @@ void Spel::voegSpelersToe(int aantalSpelers){
     //voeg burgers toe
     for(int i=1; i<=aantalBurgers ; i++){
         naamBurger = "Burger" + std::to_string(i);
-        //Burger* naamBurger = new Burger(naamBurger);
         spelersVector.push_back(new Burger(naamBurger));
     }
 
     //voeg speciale burgers toe
     std::vector<Speler*>specialeBurgerVector;
-    specialeBurgerVector.push_back(new Cupido("Cupido"));
-    specialeBurgerVector.push_back(new Dief("Dief"));
-    specialeBurgerVector.push_back(new Heks("Heks"));
-    specialeBurgerVector.push_back(new Jager("Jager"));
-    specialeBurgerVector.push_back(new Ziener("Ziener"));
+    specialeBurgerVector.push_back(new Cupido());
+    specialeBurgerVector.push_back(new Dief());
+    specialeBurgerVector.push_back(new Heks());
+    specialeBurgerVector.push_back(new Jager());
+    specialeBurgerVector.push_back(new Ziener());
 
     std::shuffle(specialeBurgerVector.begin(), specialeBurgerVector.end(), std::default_random_engine(std::time(0)));
 

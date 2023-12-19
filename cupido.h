@@ -10,6 +10,8 @@ public:
     Cupido():Burger("Cupido"){}
     void actieNacht(std::vector <Speler*> spelersVector);
     enum ROLLEN getRol();
+
+    ~Cupido(){}
 };
 
 #endif // CUPIDO_H
