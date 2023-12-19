@@ -12,13 +12,13 @@ public:
     Speler( std::string naam) : naam(naam) {}
     std::string getNaam(void);
     virtual void actieNacht(std::vector <Speler*> spelersVector)  =0;
-    void setNaam(std::string naam);
+    void setNaam(const std::string naam);
     virtual enum ROLLEN getRol(void) =0;
-    void setBurgemeester(bool burgemeester = 0);
+    void setBurgemeester(const bool burgemeester = 0);
     bool getBurgemeester(void);
-    void setVerliefd(bool isVerliefd = 0);
+    void setVerliefd(const bool isVerliefd = 0);
     bool getVerliefd(void);
-    void setIsVermoord(bool isVermoord = 0);
+    void setIsVermoord(const bool isVermoord = 0);
     bool getIsVermoord(void);
 private:
 
