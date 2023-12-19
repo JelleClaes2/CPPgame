@@ -26,11 +26,13 @@ public:
     void stemVoorBurgemeester(void);
     bool checkEindeSpel(void);
     void dag(void);
+
+    static std::string displayRol(ROLLEN rol);
 private:
     int aantalSpelers;
     std::vector<Speler*> spelersVector;
     void verwijderSpeler(void);
-    std::string displayRol(ROLLEN rol);
+
     void vermoorden(void);
     void stemVoorVerbaning(void);
     Speler* vindSpeler(ROLLEN rol);

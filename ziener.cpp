@@ -1,4 +1,5 @@
 #include "ziener.h"
+#include "spel.h"
 #include <iostream>
 
 void Ziener::actieNacht(std::vector <Speler*> spelersVector){
@@ -8,7 +9,7 @@ void Ziener::actieNacht(std::vector <Speler*> spelersVector){
 
     for(Speler* spelers: spelersVector){
         if(spelers->getNaam() == naamSpeler){
-            spelers->getRol();
+            std::cout << Spel::displayRol( spelers->getRol()) << std::endl;
         }
     }
 

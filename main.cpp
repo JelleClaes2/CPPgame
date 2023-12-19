@@ -34,5 +34,10 @@ int main(int argc, char *argv[])
     nieuwSpel->eersteNacht();
     nieuwSpel->stemVoorBurgemeester();
 
+    while(nieuwSpel->checkEindeSpel() == 1){
+        nieuwSpel->nacht();
+        nieuwSpel->dag();
+    }
+
     return 0;
 }

@@ -84,6 +84,8 @@ void Spel::nacht(){
     if(ziener != nullptr){
         ziener->actieNacht(spelersVector);
     }
+
+    vermoorden();
 }
 
 void Spel::vulNamenIn(){
@@ -100,7 +102,7 @@ void Spel::vulNamenIn(){
 void Spel::toonRollen(){
     int i=0;
     for (Speler* spelers: spelersVector){
-        std::cout<< spelers->getNaam()<< " Duuw op enter om je rol te zien"<<std::endl;
+        std::cout<< spelers->getNaam()<< " Duw op enter om je rol te zien"<<std::endl;
         if(i == 0){
             while(getchar() != '\n');
         }
@@ -205,7 +207,7 @@ Speler* Spel::vindSpeler(ROLLEN rol){
 }
 
 void Spel::dag(){
-    std::cout<< "Iedereen mag weer wakker" << std::endl;
+    std::cout<< "Iedereen mag weer wakker worden" << std::endl;
 
     for(Speler* spelers: spelersVector){
         if(spelers->getIsVermoord() == 1){
@@ -215,13 +217,13 @@ void Spel::dag(){
         }
     }
 
-    std::cout << "We gaan stemmen stemmen om een verdacht persoon te vermoorden van het dorp" << std::endl;
+    std::cout << "We gaan stemmen om een verdacht persoon te vermoorden van het dorp" << std::endl;
 
     stemVoorVerbaning();
 }
 
 void Spel::verwijderSpeler(){
-    std::vector<Speler*>::iterator it ;
+    std::vector<Speler*>::iterator it;
 
     for(it = spelersVector.begin() ; it != spelersVector.end() ; it++ ){
         if((*it)->getIsVermoord() == 1){
@@ -232,9 +234,8 @@ void Spel::verwijderSpeler(){
 
                 std::vector<Speler*>::iterator itJager;
                 for(itJager = spelersVector.begin() ; itJager != spelersVector.end() ; itJager++){
-                    if((*it)->getNaam() == doodGeschoten){
-                        spelersVector.erase(itJager);
-                        delete(*itJager);
+                    if((*itJager)->getNaam() == doodGeschoten){
+                        (*itJager)->setIsVermoord(1);
                     }
                 }
             }
@@ -243,14 +244,17 @@ void Spel::verwijderSpeler(){
                 std::vector<Speler*>::iterator itVerliefd;
                 for(itVerliefd= spelersVector.begin() ; itVerliefd !=spelersVector.end() ; itVerliefd++){
                     if(((*itVerliefd)->getIsVermoord() == 0) && ((*itVerliefd)->getVerliefd() == 1)  ){
-                        spelersVector.erase(itVerliefd);
-                        delete(*itVerliefd);
+                        (*itVerliefd)->setIsVermoord(1);
                     }
                 }
-
             }
-            spelersVector.erase(it);
+        }
+    }
+
+    for(it = spelersVector.begin() ; it != spelersVector.end() ; it++ ){
+        if((*it)->getIsVermoord() == 1){
             delete(*it);
+            it = spelersVector.erase(it);
         }
     }
 }
@@ -285,25 +289,30 @@ void Spel::vermoorden(){
     for(Speler* spelers: spelersVector){
         if(spelers->getRol() == WEERWOLF){
             std::string stemOp;
-            std::cout << spelers->getNaam() << " op welke speler wil jij vermoorden?" << std::endl;
+            std::cout << spelers->getNaam() << " welke speler wil jij vermoorden?" << std::endl;
             std::cin >> stemOp;
 
             stemmen[stemOp]++;
-
-            for(it = stemmen.begin(); it != stemmen.end(); it++){
-                if(it->second >= maxWaarden){
-                    winnaar = it->first;
-                    maxWaarden = it->second;
-                }
-            }
-
-            for(Speler* spelers: spelersVector){
-                if(spelers->getNaam() == winnaar){
-                    spelers->setIsVermoord(1);
-                }
-            }
         }
     }
+
+    for(it = stemmen.begin(); it != stemmen.end(); it++){
+        if(it->second >= maxWaarden){
+            winnaar = it->first;
+            maxWaarden = it->second;
+
+            std::cout << winnaar << " " << maxWaarden;
+        }
+    }
+
+    for(Speler* spelers: spelersVector){
+        if(spelers->getNaam() == winnaar){
+            spelers->setIsVermoord(1);
+            std::cout << spelers->getNaam() << spelers->getIsVermoord();
+        }
+    }
+
+    verwijderSpeler();
 }
 
 
