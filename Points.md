@@ -13,46 +13,149 @@
 
 ## Aanvullend
 ### Algemeen
-- [ ] clean main (i.e. nothing in the main that should be in a class)
-- [ ] no globals, but statics if needed
-- [ ] correct protections
-- [ ] maintainability by clean uniform code style and good function naming and/or comments everywhere
-- [ ] separate header files
-- [ ] one complete project that compiles and does not crash
+- [X] clean main (i.e. nothing in the main that should be in a class)
+- [X] no globals, but statics if needed
+- [X] correct protections
+- [X] maintainability by clean uniform code style and good function naming and/or comments everywhere
+- [X] separate header files
+- [X] one complete project that compiles and does not crash
 - [ ] fully working project
-- [ ] sufficient git commits (+/- weekly)
-- [ ] correct files on git
-- [ ] working build manual as readme on GitHub (project must be possible to build from scratch on a clean PC)
+- [X] sufficient git commits (+/- weekly)
+- [X] correct files on git
+- [X] working build manual as readme on GitHub (project must be possible to build from scratch on a clean PC)
 ### OOP
-- [ ] at least 2 default constructors
+- [X] at least 2 default constructors 
+```
+Cupido():Burger("Cupido"){}//default constructor
+Dief():Burger("Dief"){}//default constructor
+```
 - [X] at least 2 parameterized constructors
-- [ ] at least 2 copy constructors
-- [ ] at least 2 destructors
+```
+Cupido(std::string naam):Burger(naam){}//parameterized constructor
+Dief(std::string naam):Burger(naam){}//parameterized constructor
+```
+- [X] at least 2 copy constructors
+```
+Burger(Burger &burger):Speler(burger.naam){ // coppy constructor
+        this->setIsVermoord(burger.getIsVermoord());
+        this->setBurgemeester(burger.getBurgemeester());
+        this->setVerliefd(burger.getVerliefd());
+    }
+Weerwolf(Weerwolf &weerwolf): Speler(weerwolf.naam){}
+```
+- [X] at least 2 destructors
+```
+~Burger(){}//destructor
+~Cupido(){}//destructor
+```
 - [X] member initialization in constructors (the stuff behind a colon)
+```
+Speler( std::string naam) : naam(naam) {}
+```
 - [X] constructor forwarding
+```
+Burger(std::string naam):Speler(naam){} //parameterized constructor
+```
 - [X] useful proven (dynamic) polymorphism
+```
+virtual void actieNacht(std::vector <Speler*> spelersVector)  =0;
+```
 - [X] useful usage of "this" (if the code does not work without it)
+```
+void Speler::setNaam(std::string naam){
+    this->naam = naam;
+}
+```
 - [X] useful member function
-- [ ] default values in function definition
+- [X] default values in function definition
+```
+void setBurgemeester(const bool burgemeester = 0);
+```
 - [X] useful member variabel
 - [X] useful getters and setters for member variables
-- [ ] correct usage of inline function
-- [ ] useful template function or class
+- [X] correct usage of inline function
+```
+static inline std::string displayRol(ROLLEN rol);
+```
+- [X] useful template function or class
 - [ ] useful friend function or class
 ### C++
-- [ ] everything in one or more self-made namespace(s)
+- [X] everything in one or more self-made namespace(s)
+```
+namespace SpelNS 
+```
 - [ ] 2 useful unsigned chars or other better usage of memory efficient type
-- [ ] at least 4 useful const references for variables
-- [ ] at least 4 useful const references for functions
+- [X] at least 4 useful const references for variables
+```
+const int aantalSpecialeBurgers= std::min (aantalSpelers/3,5);
+const int aantalBurgers = aantalSpelers - aantalWeerwolven - aantalSpecialeBurgers;
+const int aantalOverGeblevenSpelers = aantalBurgers + aantalWeerwolven;
+const bool isSpelerVerliefd = spelersVector[0]->getVerliefd();
+```
+- [X] at least 4 useful const references for functions
+```
+void setNaam(const std::string naam);
+void setBurgemeester(const bool burgemeester = 0);
+void setVerliefd(const bool isVerliefd = 0);
+void setIsVermoord(const bool isVermoord = 0);
+```
 - [X] at least 4 useful bool
+```
+bool burgermeester;
+bool isVerliefd;
+bool isVermoord;
+const bool isSpelerVerliefd = spelersVector[0]->getVerliefd();
+```
 - [X] dynamic memory allocation (new)
+```
+spelersVector.push_back(new Weerwolf(naamWeerwolven));
+```
 - [X] dynamic memory removing (delete)
-- [X] 2 useful (modern) call-by-references
+```
+delete(*it)
+```
+- [ ] 2 useful (modern) call-by-references
 - [X] useful string class usage
+```
+std::string naam;
+std::cout << "Wat is de naam van speler " << i << std::endl;
+std::cin >> naam;
+```
 - [X] useful container class
+```
+std::vector<Speler*> spelersVector;
+```
 - [X] useful usage of nullptr
+```
+return nullptr;
+```
 - [ ] useful usage of (modern) file-I/O
-- [ ] useful exception handling
+- [X] useful exception handling
+```
+try {
+            std::cin >> aantalSpelers;
+            nieuwSpel = new Spel(aantalSpelers);
+            std::cout << "Het spel wordt aangemaakt" << std::endl;
+            nieuwSpel->voegSpelersToe(aantalSpelers);
+            nieuwSpel->vulNamenIn();
+            //nieuwSpel->nacht();
+            nieuwSpel->toonRollen();
+            nieuwSpel->eersteNacht();
+            nieuwSpel->stemVoorBurgemeester();
+
+            while(nieuwSpel->checkEindeSpel() == 1){
+                nieuwSpel->nacht();
+                nieuwSpel->dag();
+            }
+
+            return 0;
+        } catch ( AantalSpelerException& e) {
+            std::cout << e.what() << std::endl;
+
+        } catch (...){
+            std::cout << "Catch all exceptie" << std::endl;
+        }
+```
 - [ ] useful usage of lambda function
 - [ ] useful usage of threads
 ### Uitbreiding
@@ -60,7 +163,7 @@
 - [ ] useful usage of signals/slots
 - [ ] test-driven development (= written test plan or unit tests)
 - [X] solve bug ticket (with pull request or commit message issue link and issue branch)
-- [X] report a bug ticket on another project
+- [X] report a bug ticket on [another project](https://github.com/driesnuttin25/Mazerush.git) issue: #2
 - [ ] usage of a GUI
 - [ ] usage of OpenGL or other 3D engine
 - [ ] useful usage of an external library (not Qt)
