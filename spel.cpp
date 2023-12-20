@@ -25,11 +25,11 @@ void Spel::voegSpelersToe(int aantalSpelers){
         aantalWeerwolven = 3;
     }
 
-    int aantalSpecialeBurgers= aantalSpelers/3;
+    const int aantalSpecialeBurgers= aantalSpelers/3;
 
 
 
-    int aantalBurgers = aantalSpelers - aantalWeerwolven - aantalSpecialeBurgers;
+   const int aantalBurgers = aantalSpelers - aantalWeerwolven - aantalSpecialeBurgers;
 
     //voeg weerwolven toe
     for(int i = 1 ; i<=aantalWeerwolven ; i++){
@@ -327,6 +327,9 @@ bool Spel::checkEindeSpel(){
             aantalBurgers++;
         }
     }
+    const int aantalOverGeblevenSpelers = aantalBurgers + aantalWeerwolven;
+
+    const bool isSpelerVerliefd = spelersVector[0]->getVerliefd();
 
     if(aantalWeerwolven == 0){
         std::cout << "De burgers hebben gewonnen" << std::endl;
@@ -334,7 +337,7 @@ bool Spel::checkEindeSpel(){
     } else if(aantalBurgers == 0){
         std::cout << "De weerwolven hebben gewonnen" << std::endl;
         return 0;
-    }else if(((aantalBurgers + aantalWeerwolven) == 2) && (spelersVector[0]->getVerliefd() == 1) ){
+    }else if((aantalOverGeblevenSpelers == 2) && ( isSpelerVerliefd == 1) ){
         std::cout << "Het kopeltje heeft gewonnen" << std::endl;
         return 0;
     } else {
